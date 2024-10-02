@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Graph Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 80vh; /* Adjust this to control iframe size */
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Select Network Graph</h1>
+  
+  <div class="container">
+    <label for="type">Select Type:</label>
+    <select id="type" onchange="updateGraph()">
+      <option value="GBM">GBM</option>
+      <option value="astro">Astro</option>
+      <option value="oligo">Oligo</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <label for="direction">Select Directionality:</label>
+    <select id="direction" onchange="updateGraph()">
+      <option value="undir">Undirected</option>
+      <option value="dir">Directed</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <label for="centrality">Select Centrality Measure:</label>
+    <select id="centrality" onchange="updateGraph()">
+      <option value="strength">Strength</option>
+      <option value="eigen">Eigen</option>
+      <option value="close">Closeness</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <iframe id="graph-frame" src="plots/GBM_undir_strength.html"></iframe>
+  </div>
+
+  <script>
+    function updateGraph() {
+      // Get selected values from dropdowns
+      const type = document.getElementById('type').value;
+      const direction = document.getElementById('direction').value;
+      const centrality = document.getElementById('centrality').value;
+      
+      // Construct the file name based on selections
+      const fileName = `${type}_${direction}_${centrality}.html`;
+      
+      // Update the iframe to show the correct graph
+      document.getElementById('graph-frame').src = `plots/${fileName}`;
+    }
+  </script>
+
+</body>
+</html>
+
