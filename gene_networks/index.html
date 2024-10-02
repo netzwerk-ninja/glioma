@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Network Graph Selector</title>
+  <title>Glioma Gene Networks</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,14 +21,14 @@
 </head>
 <body>
 
-  <h1>Select Network Graph</h1>
+  <h1>Select Glioma Gene Network</h1>
   
   <div class="container">
-    <label for="type">Select Type:</label>
+    <label for="type">Select Glioma Type:</label>
     <select id="type" onchange="updateGraph()">
-      <option value="GBM">GBM</option>
-      <option value="astro">Astro</option>
-      <option value="oligo">Oligo</option>
+      <option value="GBM">Glioblastoma</option>
+      <option value="astro">Astrocytoma</option>
+      <option value="oligo">Oligodendroglioma</option>
     </select>
   </div>
 
@@ -43,9 +43,9 @@
   <div class="container">
     <label for="centrality">Select Centrality Measure:</label>
     <select id="centrality" onchange="updateGraph()">
-      <option value="strength">Strength</option>
-      <option value="eigen">Eigen</option>
-      <option value="close">Closeness</option>
+      <option value="strength">Strength Centrality</option>
+      <option value="eigen">Eigenvector Centrality</option>
+      <option value="close">Closeness Centrality</option>
     </select>
   </div>
 
